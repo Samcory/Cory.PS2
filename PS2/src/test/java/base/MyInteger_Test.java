@@ -28,7 +28,31 @@ public class MyInteger_Test {
 
 	@Test
 	public void test() {
-		assertTrue(1==1);
+		MyInteger oddInteger = new MyInteger(9);
+		MyInteger evenInteger = new MyInteger(10);
+		MyInteger primeInteger = new MyInteger(11);
+		MyInteger primeInteger_2 = new MyInteger(2);
+		
+		assertFalse(oddInteger.isEven());
+		assertTrue(oddInteger.isOdd());
+		assertFalse(evenInteger.isOdd());
+		assertTrue(evenInteger.isEven());
+		assertTrue(primeInteger.isPrime());
+		assertTrue(primeInteger_2.isPrime());
+		assertFalse(evenInteger.isPrime());
+		
+		assertFalse(oddInteger.isOdd(evenInteger));
+		assertTrue(oddInteger.isOdd(oddInteger));
+		assertFalse(evenInteger.isEven(oddInteger));
+		assertTrue(evenInteger.isEven(evenInteger));
+		assertTrue(primeInteger.isPrime(primeInteger));
+		assertTrue(primeInteger_2.isPrime(primeInteger_2));
+		assertFalse(primeInteger.isPrime(evenInteger));
+		
+		assertTrue(primeInteger.equals(11));
+		assertFalse(primeInteger.equals(13));
+		assertTrue(oddInteger.equals(oddInteger));
+		assertFalse(oddInteger.equals(evenInteger));
 	}
 
 }
